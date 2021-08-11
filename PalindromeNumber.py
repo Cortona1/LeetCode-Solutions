@@ -5,31 +5,7 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
 
-        integer_string = str(x)
-        string_length = len(str(x))
-        first_half = ""
-        second_half= ""
-        counter = 0
-
-        if string_length % 2 == 0:
-
-            while counter < string_length / 2:
-                first_half += integer_string[counter]
-                second_half += integer_string[string_length -1 -counter]
-                counter+=1
-
-        else:
-            while counter < (string_length / 2) - 1:
-                first_half += integer_string[counter]
-                second_half += integer_string[string_length - 1 - counter]
-                counter += 1
-
-        if first_half == second_half:
-            return True
-        return False
+        return (str(x) == str(x)[::-1])
 
 
-
-test = Solution()
-print(test.isPalindrome(121))
 
