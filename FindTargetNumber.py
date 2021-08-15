@@ -13,13 +13,14 @@ def find_target(number_array_1, number_array_2, target_number):
     number_array_1.sort()
     number_array_2.sort()
 
-    closest_pair = ()
+
     column_range = len(number_array_1) - 1
     row_range = 0
     close_target_number = number_array_1[column_range] + number_array_2[row_range]
+    closest_pair = (number_array_1[column_range], number_array_2[row_range])
 
     while row_range  >= 0 and row_range < len(number_array_2) and column_range >= 0 and column_range < len(number_array_2):
-
+        
         if number_array_1[column_range] + number_array_2[row_range] == target_number:
             return (number_array_1[column_range], number_array_2[row_range])
 
