@@ -35,16 +35,16 @@ class Solution:
         if root is None:
             return counter
 
+        counter += 1         # if node is not none we increment counter
+
         if root.left is None and root.right is None:
-            return counter + 1
+            return counter
 
         if root.left is None:
-            counter += 1
             return self.nodeSearch(root.right, counter)
 
         if root.right is None:
-            counter += 1
             return self.nodeSearch(root.left, counter)
 
         return min(self.nodeSearch(root.left, counter),
-                   self.nodeSearch(root.right, counter)) + 1
+                   self.nodeSearch(root.right, counter))
