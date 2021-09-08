@@ -10,19 +10,22 @@ class Solution:
         result = []
 
         for i in range(numRows):
-            if i == 0:                # first two rows of pascal are hardcoded
+            if i == 0:
                 result.append([1])
-            elif i == 1:              # to establish a logical pattern
+            elif i == 1:
                 result.append([1, 1])
             else:
                 count = 0
                 intermediate_list = [1]
                 previous_row = result[i - 1]
-                while count < i - 1:
+                first_pair = 0
+                second_pair = 1
+                while count <= len(previous_row) - 2:
                     intermediate_list.append(
-                        previous_row[len(previous_row) // 2 - 1] + previous_row[
-                            len(previous_row) // 2])
+                        previous_row[first_pair] + previous_row[second_pair])
                     count += 1
+                    first_pair += 1
+                    second_pair += 1
                 intermediate_list.append(1)
                 result.append(intermediate_list)
 
