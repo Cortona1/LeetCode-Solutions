@@ -8,11 +8,18 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
-        answer = []
+        if len(nums) == 2:
+            return [0, 1]
 
-        for number in range(len(nums)):
-            for second_number in range(1, len(nums)):
-                if nums[number] + nums[second_number] == target and number != second_number:
-                    answer.append(number)
-                    answer.append(second_number)
-                    return answer
+        previous_values = {}
+
+        for index, value in enumerate(nums):
+            target_value = target - value
+
+            if index != 0:
+                needed_index = previous_values.get(target_value)
+                if needed_index is not None:
+                    return [index, needed_index]
+
+            previous_values[value] = index
+
