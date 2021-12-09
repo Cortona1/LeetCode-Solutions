@@ -8,7 +8,6 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         max_length_substring = 0
-        end_index = 0
         substring_set = set()
         len_substring_set = 0
 
