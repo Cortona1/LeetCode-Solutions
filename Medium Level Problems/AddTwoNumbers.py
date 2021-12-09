@@ -47,7 +47,6 @@ class Solution:
     def navigateLinkedList(self, node, stringValue):
         if node.next == None:
             return str(node.val) + stringValue
-
         else:
             return self.navigateLinkedList(node.next,
                                            str(node.val) + stringValue)
