@@ -5,7 +5,24 @@
 # convert it to roman numerals, solved using conditional
 # spam
 
+class Solution:
+    def intToRoman(self, num: int) -> str:
 
+        result = ""
+        integer_array = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+        roman_numeral_array = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X",
+                               "IX", "V", "IV", "I"]
+        index = 0
+
+        while num:
+            while integer_array[index] <= num:
+                result += roman_numeral_array[index]
+                num -= integer_array[index]
+            index += 1
+
+        return result
+
+"""
 class Solution:
     def intToRoman(self, num: int) -> str:
 
@@ -69,3 +86,4 @@ class Solution:
                 number += 1
 
         return result
+"""
